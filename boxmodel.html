@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stylish Forms Collection</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e3f2fd;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0d47a1;
+      margin-bottom: 40px;
+    }
+
+    .form-wrapper {
+      background: #fff;
+      margin: 20px auto;
+      padding: 25px;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin: 12px 0 5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input, select, textarea {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+      margin-bottom: 18px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+      width: auto;
+      margin-right: 8px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      color: white;
+      background-color: #1976d2;
+      cursor: pointer;
+      flex: 1;
+      margin-right: 10px;
+      transition: background-color 0.3s;
+    }
+
+    button:last-child {
+      margin-right: 0;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+
+    button[type="reset"] {
+      background-color: #d32f2f;
+    }
+
+    button[type="reset"]:hover {
+      background-color: #c62828;
+    }
+
+    /* Special styles for validation */
+    input:valid {
+      border-color: green;
+    }
+    input:invalid:not(:placeholder-shown) {
+      border-color: red;
+    }
+    input:focus:invalid:not(:placeholder-shown) {
+      box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    }
+
+    @media (max-width: 600px) {
+      .form-wrapper {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Form Design Examples</h1>
+
+  <div class="form-wrapper">
+    <h2>Simple Form</h2>
+    <form action="/submit-form" method="POST">
+      <label for="simple-name">Full Name</label>
+      <input type="text" id="simple-name" name="name" placeholder="John Doe" required>
+
+      <label for="simple-email">Email Address</label>
+      <input type="email" id="simple-email" name="email" placeholder="john@example.com" required>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <div class="form-wrapper">
+    <h2>Password Inputs</h2>
+    <form action="/submit-form" method="POST">
+      <label for="password1">Password</label>
+      <input type="password" id="password1" name="password" placeholder="Enter password" required>
+
+      <label for="password2">Repeat Password</label>
+      <input type="password" id="password2" name="confirm-password" placeholder="Confirm password" required>
+
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+
+  <div class="form-wrapper">
+    <h2>Options</h2>
+    <form action="/submit-form" method="POST">
+      <label><input type="checkbox" name="updates"> Receive Updates</label>
+
+      <label><input type="radio" name="gender" value="male"> Male</label>
+      <label><input type="radio" name="gender" value="female"> Female</label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="form-wrapper">
+    <h2>Select Menu</h2>
+    <form action="/submit-form" method="POST">
+      <label for="country-select">Choose Country</label>
+      <select id="country-select" name="country">
+        <option value="">--Select--</option>
+        <option value="india">India</option>
+        <option value="usa">USA</option>
+        <option value="germany">Germany</option>
+        <option value="australia">Australia</option>
+      </select>
+
+      <button type="submit">Go</button>
+    </form>
+  </div>
+
+  <div class="form-wrapper">
+    <h2>Submit & Reset</h2>
+    <form action="/submit-form" method="POST">
+      <label for="reset-name">Your Name</label>
+      <input type="text" id="reset-name" name="name" required>
+
+      <div class="button-group">
+        <button type="submit">Submit</button>
+        <button type="reset">Clear</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="form-wrapper">
+    <h2>Feedback</h2>
+    <form action="/submit-form" method="POST">
+      <label for="comments">Leave a Comment</label>
+      <textarea id="comments" name="feedback" placeholder="Share your thoughts..."></textarea>
+
+      <button type="submit">Post</button>
+    </form>
+  </div>
+
+  <div class="form-wrapper">
+    <h2>Responsive Form</h2>
+    <form action="/submit-form" method="POST">
+      <label for="responsive-name">Full Name</label>
+      <input type="text" id="responsive-name" name="name" required>
+
+      <label for="responsive-email">Email</label>
+      <input type="email" id="responsive-email" name="email" required>
+
+      <button type="submit">Send Info</button>
+    </form>
+  </div>
+
+  <div class="form-wrapper">
+    <h2>Validation Example</h2>
+    <form action="/submit-form" method="POST">
+      <label for="validate-name">Name</label>
+      <input type="text" id="validate-name" name="name" placeholder="Type your name" required>
+
+      <label for="validate-email">Email</label>
+      <input type="email" id="validate-email" name="email" placeholder="Type your email" required>
+
+      <button type="submit">Finish</button>
+    </form>
+  </div>
+
+</body>
+</html>
